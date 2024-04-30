@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fafafa; /* Light gray background */
+            color: #333; /* Dark gray text color */
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #333; /* Dark gray text color */
+        }
+
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #d2b48c; /* Brown container background */
+            border-radius: 8px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        }
+
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-sizing: border-box; /* Ensure padding and border are included in width */
+        }
+
+        textarea {
+            height: 150px; /* Set a fixed height for textarea */
+        }
+
+        button[type="submit"] {
+            background-color: #333; /* Dark gray button background */
+            color: #fff; /* White text color */
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #555; /* Darker gray button background on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>Contact Me</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

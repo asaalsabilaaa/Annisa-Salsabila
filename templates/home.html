@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Home</title>
+    <style> 
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            color: #333;
+            text-decoration: none;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .navbar {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .navbar li {
+            margin-right: 20px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: #d2b48c;
+        }
+
+        .container {
+            background-color: #d2b48c;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .image-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .image-container img {
+            border-radius: 50%;
+            border: 5px solid #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .intro p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .section-heading {
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .projects-list,
+        .skills-list,
+        .blogs-list {
+            margin-left: 20px;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #eebe92;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .projects-list li,
+        .skills-list li,
+        .blogs-list li {
+            margin-bottom: 5px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .footer a {
+            margin-right: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <header class="header">
+        <div class="header">
+            <a href="#" class="logo">Andi Nur Annisa Salsabila</a>
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="http://127.0.0.1:8000/about/">About Me</a></li>
+                <li><a href="http://127.0.0.1:8000/projects/">Projects</a></li>
+                <li><a href="http://127.0.0.1:8000/blog/">Blogs</a></li>
+                <li><a href="http://127.0.0.1:8000/skills/">Skills</a></li>
+                <li><a href="http://127.0.0.1:8000/contact/">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <div class="image-container">
+            <img src="https://i.pinimg.com/736x/dd/61/4d/dd614ddd6fec111803a5c5fe5bb76dc7.jpg" alt="Profile Image" width="150" height="150">
+        </div>
+        <div class="intro">
+            <h1>Welcome to Annisa's Portfolio</h1>
+            <p>Hola Peeps! Welcome to my website. I am Andi Nur Annisa Salsabila, a student in Indonesia who loves sports. If you share the same passion, you've come to the right place! Hope you enjoy.</p>
+        </div>
+        <div class="section-heading">
+            <h2>What will you find here : </h2>
+        </div>
+        <div class="container-inner">
+            <div class="projects-list">
+                <h2>Projects:</h2>
+                <ul>
+                    {% for project in projects %}
+                    <li>{{ project.title }} - {{ project.description }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="container-inner">
+            <div class="skills-list">
+                <h2>Skills:</h2>
+                <ul>
+                    {% for skill in skills %}
+                    <li>{{ skill.name }} - {{ skill.description }} ({{ skill.percentage }}%)</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="container-inner">
+            <div class="blogs-list">
+                <h2>Blogs:</h2>
+                <ul>
+                    {% for blog in blogs %}
+                    <li><a href="{% url 'blog_detail' blog.slug %}">{{ blog.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <a href="http://127.0.0.1:8000/contact/">Contact</a>
+        <a href="http://127.0.0.1:8000/about/">About</a>
+    </div>
+
+</body>
+</html>

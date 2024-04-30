@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fafafa; /* Light gray background */
+            color: #333; /* Dark gray text color */
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #333; /* Dark gray text color */
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #d2b48c; /* Brown background */
+            border-radius: 8px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        }
+
+        li:hover {
+            background-color: #a88e66; /* Darker brown on hover */
+            color: #fff; /* White text color on hover */
+        }
+
+        a {
+            text-decoration: none;
+            color: #333; /* Dark gray text color */
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #a88e66; /* Darker brown on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>Blog</h1>
+    <ul>
+        {% for blog in blogs %}
+        <li><a href="{% url 'blog_detail' blog.slug %}">{{ blog.title }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
